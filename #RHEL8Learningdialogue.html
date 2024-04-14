@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="RHEL 8 Learning dialogue内核先初始化，作为Linux system的第一个服务 ，现在最好使用 DNF 作为我的软件包管理器，系统初始化进程服务为systemdctl httpd,Linux内核是管理文件系统即硬件抽象层，CPU，I&#x2F;O等各种物理终端有效运行的总司令，接下来来讲一下比较重要的命令。 防止大脑宕机命令  echo命令  date命令  timedat">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/#RHEL8Learningdialogue.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="RHEL 8 Learning dialogue内核先初始化，作为Linux system的第一个服务 ，现在最好使用 DNF 作为我的软件包管理器，系统初始化进程服务为systemdctl httpd,Linux内核是管理文件系统即硬件抽象层，CPU，I&#x2F;O等各种物理终端有效运行的总司令，接下来来讲一下比较重要的命令。 防止大脑宕机命令  echo命令  date命令  timedat">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-04-10T16:00:14.372Z">
+<meta property="article:modified_time" content="2024-04-08T08:47:49.500Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="#RHEL8Learningdialogue.html" class="article-date">
+  <time class="dt-published" datetime="2024-04-10T16:00:14.372Z" itemprop="datePublished">2024-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="RHEL-8-Learning-dialogue"><a href="#RHEL-8-Learning-dialogue" class="headerlink" title="RHEL 8 Learning dialogue"></a><strong>RHEL 8 Learning dialogue</strong></h1><p>内核先初始化，作为Linux system的第一个服务 ，现在最好使用 DNF 作为我的软件包管理器，系统初始化进程服务为<code>systemdctl httpd</code>,Linux内核是管理文件系统即硬件抽象层，CPU，I&#x2F;O等各种物理终端有效运行的总司令，接下来来讲一下比较重要的命令。</p>
+<h4 id="防止大脑宕机命令"><a href="#防止大脑宕机命令" class="headerlink" title="防止大脑宕机命令"></a>防止大脑宕机命令</h4><hr>
+<ul>
+<li><p><code>echo</code>命令</p>
+</li>
+<li><p><code>date</code>命令</p>
+</li>
+<li><p><code>timedatectl</code>命令  </p>
+</li>
+<li><p><code>reboot</code>和<code>poweroff</code>命令</p>
+</li>
+<li><p><code>wget</code>命令</p>
+</li>
+<li><p><code>ps</code>和<code>pstree</code>命令</p>
+</li>
+<li><p><code>top</code>命令</p>
+</li>
+<li><p><code>nice</code>命令</p>
+</li>
+<li><p><code>pidof</code>和<code>kill</code>命令</p>
+</li>
+<li><p><code>ifconfig</code>命令</p>
+</li>
+<li><p><code>uname</code>命令</p>
+</li>
+<li><p><code>uptime</code>命令</p>
+</li>
+<li><p><code>free</code>命令</p>
+</li>
+<li><p><code>who</code>和<code>last</code>命令</p>
+</li>
+<li><p><code>ping</code>命令 和 <code>tracepath</code>命令</p>
+</li>
+<li><p><code>netstat</code>命令</p>
+</li>
+<li><p><code>history</code>命令</p>
+</li>
+<li><p><code>sosreport</code>命令</p>
+</li>
+<li><p><code>cd</code>与<code>pwd</code>命令</p>
+</li>
+<li><p><code>ls</code>与<code>tree</code>命令</p>
+</li>
+<li><p><code>find</code> <code>locate</code> <code>whereis</code> <code>which</code>命令</p>
+</li>
+<li><p><code>cat</code> <code>more</code> <code>head</code> <code>tail</code>命令</p>
+</li>
+<li><p><code>tr</code>命令 | 文本保存</p>
+</li>
+<li><p><code>wc</code>命令 | 统计用户</p>
+</li>
+<li><p><code>stat</code>命令</p>
+</li>
+<li><p><code>grep</code>和<code>cut</code>命令</p>
+</li>
+<li><p><code>diff</code>命令 | –brief  | -c</p>
+</li>
+<li><p><code>uniq</code>命令 | 包括不会修改文本内容</p>
+</li>
+<li><p><code>sort</code>命令 |数值型，去除重复行，指定间隔符</p>
+</li>
+</ul>
+<p><code>echo</code> 命令用于输出字符串或提取变量的值，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo&#x27;高铭锐真帅&#x27;</span><br><span class="line">高铭锐真帅</span><br><span class="line">ehco $SHELL #其中 &#x27;$&#x27;代表变量</span><br><span class="line">/bin/bash</span><br></pre></td></tr></table></figure>
+
+<p><code>date</code>命令有多个参数和转义字符，主要用来显示时间，修改时间主要用<code>timedatectl</code>命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">date</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">+%a %b %d %H:%M:%S CST %Y<span class="string">&quot;</span></span></span><br><span class="line">date &quot;+%Y-%m-%d %H:%M:%S&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="string">2024-03-30 11:56:50</span></span></span><br><span class="line">date -s &quot;20240330 11:56:50&quot;</span><br><span class="line">date</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="string">SAT Mar 30 11:56:50 CST 2024</span></span></span><br><span class="line">date &quot;+%j&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="string">90</span></span></span><br></pre></td></tr></table></figure>
+<p>总之：<code>date</code>使用到转义字符一定得使用<code>&quot;&quot;</code>和<code>+</code>,用<code>-s</code>参数(setting)设置时间不需要年月日标准化</p>
+<p><code>timedatectl</code>主要用于更改与时间有关的数据，如时区、时间(年月日，具体时间)，流程如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">timedatectl status`</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">主要看时区和当地时间</span></span><br><span class="line">timedatectl list-timezones</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">这里主要关注上海,我可不去确定能不能带着电脑去新加披和东京工作，根据上面列出的数据进行更改</span></span><br><span class="line">timedatectl set-timezone Asia/ShangHai</span><br><span class="line">timedatectl set-time &quot;%H:%M:%S&quot;</span><br></pre></td></tr></table></figure>
+<p>总结：按照这个流程是可以节省时间的，<code>date</code>用于查看时间，而<code>timedatectl</code>用于修改时间</p>
+<p><code>reboot</code>和<code>poweroff</code>没什么可说的，前一个重启，后一个关机 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br><span class="line">poweroff</span><br></pre></td></tr></table></figure>
+
+<p><code>wget</code>命令亟待解决中····</p>
+<p><code>ps</code>即<code>processes</code>的缩写,即进程,进程主要记住下面几种状态:<br><code>R</code> <code>S</code> <code>D</code> <code>Z</code> <code>T</code> <code>&lt;</code> <code>N</code> <code>s</code> <code>(1)</code><br>这些进程状态位于STAT一栏:<code>R</code>即run运行;<code>S</code>即stop中断,实际表现也就也是在程序运行的时候使用array_key<code>Ctrl</code>+ <code>C</code>;<code>D</code>即don’t_stop;<code>Z</code>即僵化Zombies;<code>T</code>即停止;<code>&lt;</code>即高优先级;<code>N</code>即normal,相当于低优先级,<code>s</code>即son,是子进程,<code>(1)</code>是多线程,一般与前五个状态结合</p>
+<p><code>ps</code>命令一般用于查看相关进程的UID,且通常用于结合管道符<code>|</code>,最基础的使用就是<code>aux</code>参数,<code>a</code>即all所有,u即user用户的其他相关信息，不过没啥用,最推荐是使用<code>-f</code>参数,它显示通过I&#x2F;O设备进行的命令操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux #只有ps命令可以省略短格式单线</span><br></pre></td></tr></table></figure>
+<p>输出结果就是一个表格:</p>
+<table>
+<thead>
+<tr>
+<th align="center">USER</th>
+<th align="center"><em><strong>PID</strong></em></th>
+<th>%CPU</th>
+<th align="center">%MEM</th>
+<th align="center">VSZ</th>
+<th align="center">RSS</th>
+<th align="center">TTY</th>
+<th align="center"><em><strong>STAT</strong></em></th>
+<th align="center">START</th>
+<th align="center">TIME</th>
+<th align="center">COMMAND</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center">进程ID</td>
+<td></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">状态</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -f</span><br></pre></td></tr></table></figure>
+<p><code>pstree</code><em><strong>不知道有何用处,所以这个区域待定,现在看树状图我也看不出来</strong></em></p>
+<p><code>top</code>命令是用来实时监控进程，可以看作一个Windows强化版的任务管理器或计划表，可以分析计算机的性能，最值得关注的系统负载和优先级高低，系统负载位于第一行末尾的三个数值（1min,5min,15min），其次是进程的 优先级<code>PR</code>和<code>NI</code>，服务于<code>nice</code>命令</p>
+<p><code>nice</code>命令用于修改进程(一般为命令或运行文本)优先级，其中最常用的就是<code>-n</code>参数，优先级的数值范围为（-20~19）需要加上特定优先级的数值，数值越低，优先级越大，例如设置bash为最高优先级，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nice -n -20 bash</span><br></pre></td></tr></table></figure>
+
+<p><code>pidof</code>可以直接用来查询相关的程序进程的<code>PID</code>,<em><strong>不支持</strong></em>使用通配符，一般查询完后配合<code>kill</code>命令来结束进程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pidof bash</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">3757 3712 2609 905</span></span><br></pre></td></tr></table></figure>
+<p><code>kill</code>可以直接用来结束进程,不需要携带任何参数,如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill 3757</span><br></pre></td></tr></table></figure>
+<p>有时遇到那些僵死或不能中断的进程,可以用<code>-9</code>参数或<code>KILL</code>参数来强制结束进程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 3757</span><br></pre></td></tr></table></figure>
+
+<p><code>killall</code>命令可以批量结束某个进程及所有子进程,像一般httpd就有其多个子进程可以直接:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall httpd</span><br></pre></td></tr></table></figure>
+<p>总结:其实<code>kill</code>就相当于是<em>shortcut_key</em>里的<code>Ctrl</code>+ <code>C</code>:crying_cat_face:</p>
+<p><code>ifconfig</code>是用来获取网卡配置和网络状态信息的,其中只要看网卡名称那一段(第一段)的内容就好,依次为:网卡名称(开头),<strong>inet</strong>(IP地址),<strong>ether</strong>(Mac网卡物理地址),<strong>RX</strong>和<strong>TX</strong>这种转发和接受数据包的大小(前面为字节,后面为Kb)</p>
+<p><code>uname</code>全名是<code>Unix Name</code>,这个命令给出有关系统内核的相关信息,最重要的是看内核发行版本,反正和内核有关的数据使用<code>uname</code>就对了,<code>uname</code>通常和<code>-a</code>参数即<code>all</code>配合使用,展示主机的全部信息，但是硬件名称,硬件平台以及处理器类型,数据相同,但意义真的相同吗,硬件以后再学吧<br><strong>TIP</strong>:有关系统版本的详细信息可以用cat等查看<code>/etc/redhat-release</code>文件</p>
+<p><code>uptime</code>主要用于查看负载值，根据描述，负载值不要超过5就可以了</p>
+<p><code>free</code>命令一般配合参数<code>-h</code>易读模式使用,用来查看当前系统内存的使用量,后面的<code>df -h</code>也一样,只不过是查看物理存储的使用情况,千万别混了.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -h</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">total</th>
+<th align="center">used</th>
+<th align="center">free</th>
+<th align="center">shared</th>
+<th align="center">buffers</th>
+<th align="center">buff&#x2F;cache</th>
+<th align="center">available</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mem:</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">缓存</td>
+<td align="center">缓存</td>
+<td align="center">可利用</td>
+</tr>
+<tr>
+<td>Swap:</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p><code>who</code>和<code>last</code>可以配合使用，都是和主机访问有关的命令，<code>who</code>可以查阅当前登录主机的用户终端数量，事实上，我还没试过在同一台主机能够有多个个人用户登录终端，但是tty默认是从1~7，默认有多 个人可以同时登录我(root)的主机，我曾经也给CAMIO远程操控过，而last呢，就是查看登录主机的时间的一个日志本命令。</p>
+<p><code>ping</code>命令很常用，也通常配合<code>tracepath</code>使用，多数时是为了检查网络的联通性，所以雀雀实实与ICMP协议与远端主机要求发出回应信息，这里比较常用的<code>-c</code>参数，可以指定发送次数，一般格式如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -c 4 [inet]</span><br></pre></td></tr></table></figure>
+<p>若能连上，则会有每一次反馈信息的ttl和延迟毫秒，若接不上，则显示主机为<em><strong>Desination Host Unreachable</strong></em><br><code>tracepath</code><em><strong>可以追踪数据包传输到目标主机的所有路由信息，一般连不上网首先观察一下到底是传到哪个路由地址出了问题，虽然我对计算机网络一窍不通，但我会努力的</strong></em></p>
+<p><code>netstat</code>怎么使用，我现在不知道它的具体操作，它应该主要分析网络状况，不过我计算机网络知识是白板，所以数据也看不懂，你想说列出网卡列表<code>netstat -i</code>，我觉得还是使用<code>ifconfig</code>好点，路由表我也看不懂，，这个命令待定吧</p>
+<p><code>history</code>命令就有用了，它的存储命令的条数与<code>/etc/profile</code>的<code>HISTSIZE</code>环境变量的值有关，默认1000，可以自由修改，历史的命令存储与.bash_history文件中，一般使用顺序照着下面：(这是我的个人习惯)：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">history</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">显示以<span class="string">&#x27;[n] history_command&#x27;</span>的形式以列的形式</span></span><br><span class="line">!n #回车即可使用对应命令</span><br><span class="line">history -c #`-c`c参数即clear，直接清空命令历史</span><br></pre></td></tr></table></figure>
+
+<p><code>sosreport</code>即求救报告，旨在将你的错误信息打包成一个压缩包用于远程就诊，事实上，我很多时候计算机是遇到连终端都没法启动的情况，也就不能使用<code>sosreport</code>了，而且压缩包你得需要发送吧，这个内容我还没学呢，也就待定吧</p>
+<p>目录有着很严格的自顶向下原则，就是你只能在该文件夹下查看能看的东西，跨级是无法查看的，甚至目录都得一级一级切换 :sob:,不过这也是严谨的地方，我很喜欢:happy:,其中，最常用的就是<code>cd</code>命令，即<em>change directory</em>,非常常用，<code>pwd</code>即<em>print working directory</em>,显示当前的工作目录，不过应该没啥用，对于初学者，毕竟，它直接在终端中括号告诉你:joy:,如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxprobe ~]<span class="meta"># cd Test_directory</span></span><br><span class="line"><span class="comment">//[root@linuxprobe Test_directory]# </span></span><br><span class="line">[root@linuxprobe Test_directory]<span class="meta"># pwd</span></span><br><span class="line"><span class="comment">// /root/Test_directory</span></span><br></pre></td></tr></table></figure>
+<p>其次，<code>cd ..</code>是返回上级目录，<code>cd -</code>是返回修改前的目录，要想回到根目录，直接使用<code>cd</code>命令，管理员还可以切换到其他用户的目录<code>cd ~username</code>,<del><strong><em>这么写日志确实浪费时间哈，先看完知识再说</em>。</strong></del><br><code>ls</code>即list，用于查看文件的信息，包括文件的大小，属性，文件权限，创建时间，一般采用<code>-a</code> 显示所有文件，<code>-l</code>显示更多信息， <code>-F</code> 文件夹区分化等参数，如下演示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxprobe ~]# ls -alF</span><br><span class="line">test_file1</span><br><span class="line">test_file2</span><br><span class="line">test_directory1/</span><br><span class="line">test_directory2/</span><br><span class="line">-------------------------------------省略大部分信息 ------------------------------------------</span><br></pre></td></tr></table></figure>
+<p><code>tree</code>即树状图，随着文件的杂乱无章，我们需要清楚地看出文件的从属关系，这个去bash演示就行<br>***<code>find</code>命令非常重要，这边算是在复习了，它的格式是<code>find 路径 参数 寻找条件</code>直接在代码块贴出来吧，并贴加注释，这个一定得多练多操作:dizzy_face:***。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">find /etc -name &quot;*.conf&quot; #在/etc/ 找所有.conf结尾的文件，待会通字符得好好说说</span><br><span class="line">find /etc ！-name &quot;*.conf&quot;#其实我也不知道为何取反要放在参数前面</span><br><span class="line">find /etc -size +2MB #在/etc/ 找所有大于2MB的文件，若是要找2MB以内的文件，就是&quot;-2MB&quot;</span><br><span class="line">find /home -user linuxprobe #在home目录找属于linuxprobe用户的文件，当然前提你得是root用户</span><br><span class="line">find . #在当前工作目录列出其文件系统</span><br><span class="line">find /etc -mtime -7 # - 就是7天内,寻找7天内修改的文件</span><br><span class="line">find /etc -mtime +7 # + 就是7天外，寻找超出7天前修改的文件</span><br><span class="line">find / -user linuxprobe -exec cp -a &#123;&#125; /root/findresults/ \; # 这里重要的是&#x27;-exec&#x27;参数，类似于管道符号</span><br></pre></td></tr></table></figure>
+<p>你不要给多个参数吓到了，始终记住<code>find</code>就只是找文件的命令，这种理解就会变得简单点</p>
+<p><code>locate</code>和<code>whereis</code>都与<code>updatedb</code>所形成的索引库文件有关，所以它其实范围没<code>find</code>广，<code>locate</code>找一些常见文件比较实用，比如说想找一下locate的配置文件可以使用以下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxprobe ~]#locate locate</span><br></pre></td></tr></table></figure>
+<p>那像<code>whereis</code>找二进制文件或命令，源代码比较方便，但归根结底还是得依赖<code>updatedb</code>的索引库文件，所以使用前最好更新一把,更新完就会快很多</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxprobe ~]# updatedb</span><br><span class="line">[root@linuxprobe ~]# whereis</span><br></pre></td></tr></table></figure>
+<p><code>which</code>的级别就更低了,它甚至连帮助文件都不给，所以你其实只要掌握如何快速使用find就好，这样最好，不过话说我个人还是更喜欢<code>which</code>命令好一点。<br><code>cat</code> <code>more</code> <code>head</code> <code>tail</code> 都是用来查阅文本的，<code>cat</code>即concatenate，我们用它来查阅文本，最好配置<code>-n</code>参数扩展为行数可见形式 ，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxprobe ~]cat -n 10 test1.py</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">1 def funcion(bruce):</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">2		<span class="built_in">print</span>(bruce)</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">3		<span class="built_in">print</span>(bruce)</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">4	<span class="keyword">function</span>(<span class="string">&#x27;Hello,world&#x27;</span>)</span></span><br></pre></td></tr></table></figure>
+<p><code>cat</code>不能用来查阅大量文本，不然会闪屏，一般阅读长篇内容，推荐使用<code>more</code>参数，用回车键和空格键就能<strong>pagedown</strong>,还有这种阅读百分比的显示，非常适合我这种人，其次是<code>head</code>和<code>tail</code>,通常配合<code>-n</code>参数使用，后面加数字表示头几行和尾几行，应用场景一般为查找日志文件，<code>tail</code>一般还配合<code>-f</code>参数，即<strong>fresh</strong>来更新日志文件,这个自己去终端尝试就知道了，事实上到后期我还是推荐使用vim直接查看好点。</p>
+<p><code>tr</code>即translate,在这里其实就是有转换的功能，一般配合管道符<code>|</code>使用，如下演示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxprobe ~]# cat test1.py | tr [a-z] [A-Z]</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">结果自行脑补</span></span><br></pre></td></tr></table></figure>
+<p>**TIP:**这命令只能看效果，不能修改并传递到一个新的文本，即不能修改源文件</p>
+<p><code>wc</code>即<code>world count</code>,用于统计一些文本的参数值，<code>-l</code>即<code>line</code>行数，<code>-w</code>即<code>world</code>字数，<code>-c</code>即<code>char</code>字节数的数据,，说实在我现在也不知道有什么用途，它这里就是拿&#x2F;etc&#x2F;passwd文件来演示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc -l /etc/passwd #结果显示用户信息的行数</span><br></pre></td></tr></table></figure>
+<p><code>stat</code>用于查看文件的内容最后一次访问时间(Atime),内容最后一次修改时间(Mtime), 文件属性最后一次修改时间(Ctime),具体情况你还是找个修改过的文件在bash尝试一下吧，格式为<code>stat</code>+<code>靶文件</code>因为不加参数，所以较简单</p>
+<p><code>grep</code>和<code>cut</code>是文本内的搜索，不要和文件搜索搞混了，<code>grep</code>搜索的是每行的关键字，一般也只用<code>-n</code>和<code>-v</code>参数，<code>-n</code>参数与<code>cat</code>的差不多，都是标注所在行号，不过搜索结果的行号是非线性的，<code>-v</code>参数就是反向搜索，事实上，我可能都不带参数😂<br><code>cut</code>毕竟是以列为标准么，所以它的参数还蛮重要的，通常使用<code>-f</code>即列数和<code>-d</code>即distance表示间隔参数,我们仍用&#x2F;etc&#x2F;passwd作参考</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep -n /sbin/nologin /etc/passwd</span><br><span class="line">cut -d : -f 1 /etc/passwd</span><br></pre></td></tr></table></figure>
+<p>根据间隔符，这里的<code>-f 参数</code>后的数字决定你按哪个间隔符开始作标准，若是范围的，如1-4，则就给出四个数据作为单位</p>
+<p><code>diff</code>一看就想到了different,这个命令就是用来比较文件是否相同或不同点在哪，<code>--brief</code>长参数和<code>-c</code>用来区别的参数非常常用，直接上演示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">diff --brief a.txt b.txt</span><br><span class="line">diff -c a.txt b.txt</span><br></pre></td></tr></table></figure>
+<p>同<code>tr</code>,<code>uniq</code>也无法修改文本实际内容，只能预览观察效果，相同的行会直接pass掉，所以不要拿这个命令去看代码区，会有不可估量的损失</p>
+<p><code>sort</code>是一个很不错的排序命令，不过我是用来提取列表中的单列内容并进行排序，本身就是按字母排序，而且可以从小到大排列<code>-n</code>number，。指定间隔符<code>-t</code>(这与<code>cut</code>不同)，当然还需要选字段范围<code>-k</code>(毕竟得有个标准才知道你是想抽第几行的数据吧)，还是用&#x2F;etc&#x2F;passwd来演示,并对之前学过的<code>cut</code>作个对比</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sort -t : -k 3 -n /etc/passwd</span><br><span class="line">cut -d : -f 1 /etc/passwd</span><br></pre></td></tr></table></figure>
+<p>可以看出,<code>cut</code>感觉就是缺失了排序，并单纯要提取某列数据，而sort完全就是对相应文件按照对应的要求进行排序，关于<code>sort</code>的命令可以去自行找<code>man</code></p>
+<h4 id="初控命令"><a href="#初控命令" class="headerlink" title="初控命令"></a><strong>初控命令</strong></h4><hr>
+<ul>
+<li><code>touch</code>命令 | 黑客修改时间</li>
+<li><code>mkidr</code>命令 | 嵌套式创建</li>
+<li><code>cp</code>命令 | 以文件复制作为基本单元</li>
+<li><code>mv</code>命令 | 目录</li>
+<li><code>rm</code>命令</li>
+<li><code>dd</code>命令</li>
+<li><code>file</code>命令</li>
+<li><code>tar</code>命令 |重中之重</li>
+</ul>
+<p><code>touch</code>用于创建空白文件，不过它最好玩的地方是可以修改与文件交互的相关时间，比如说为了不让别人知道有人访问文件，你可有使用<code>-a</code>即acess _time，<code>-c</code>即change_time,不过为了便捷<br>，还是推荐直接使用<code>-d</code>直接前两者都改了吧，演示如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxprobe ~]# touch test1.md</span><br><span class="line">[root@linuxprobe ~]# ls test1.md</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">此时出现文件的一系列信息，包括访问时间，还有文件权限等,接着等一段时间</span></span><br><span class="line">[root@linuxprobe ~]# echo&#x27;高铭锐是最赞的&#x27; &gt; test1.md</span><br><span class="line">[root@linuxprobe ~]# ls test1.md</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">test1.md的一系列文件信息(主要是日期发生了变化，很难不看出被动)</span></span><br><span class="line">[root@linuxprobe ~]# touch -d &quot;Apr 1 00:00&quot; test1.md #设置为当时文件刚创建的时候，由上面的ls test1.md可以看出，，若是愚人节创建的，则为这样</span><br></pre></td></tr></table></figure>
+<p>这样，别人就不会知道你查看，修改了文件的相关内容，你最好去精通各种黑客技术</p>
+<p><code>mkdir</code>即make directory用于创建空目录,一般还可以使用’-p’参数来创建嵌套式的目录，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxprobe ~]# mkdir test_directory</span><br><span class="line">[root@linuxprobe ~]# cd test_directory</span><br><span class="line">[root@linuxprobe test_directory]# mkdir -p /a/b/c/d</span><br><span class="line">[root@linuxprobe test_directory]# tree #这时侯你就可以看看文件的这个嵌套关系</span><br></pre></td></tr></table></figure>
+
+<p><code>cp</code>命令的使用单元是文件，它是无法将一个文本内容添加到另一个已经存在的文本的，系统会询问你是否覆盖文件,具体演示如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp a.txt b.txt # 若b.txt不存在，则是将a.txt的文件复制为一个空白文件并重新命名为b.txt;若b.txt这个文件存在，则系统会询问是否覆盖该文本(加不加-i参数都无所谓)，反正就是不会向已有文件添加内容</span><br><span class="line">cp -r test1_directory/ test2_directory #复制对象是目录，你可以把它当作大文件(文件夹),需要递归复制,同文件一样，也创建一个新的文件夹或目录</span><br><span class="line">cp -f script.txt /test1_directory #-f fresh 不会询问你/test_directory有相同文件，会直接覆盖，这个命令只对将文件复制到目录或文件夹有效，没有文件复制到文件，遇到源文件这一说法</span><br></pre></td></tr></table></figure>
+
+<p><code>mv</code>命令有重命名和剪切的功能，在同一个目录执行此操作即为重命名功能，在别的目录则是剪切功能，功能如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxprobe home]# mv a.txt b.txt</span><br><span class="line">[root@linuxprobe home]# mv a.txt /etc</span><br></pre></td></tr></table></figure>
+<p><em><strong>从现在开始，一些简单到爆的命令我还是搁后面写吧，毕竟我时间也不是说很充足</strong></em></p>
+<p><code>dd</code>命令可以用来转换文件，复制文件的功能我没体会出来，有几个数据<code>if</code>即<em>input_file</em>,<code>of</code>即<em>output_file</em>,<code>bs</code>即<em>blocks</em>,<code>count</code>即数量，后两个均可以定义块数据的大小，演示如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dd if = /dev/zero of = test_file bs = 1024M count = 1 #这个感觉还不是很有用，感觉就是知道有/dev/zero 数据文件可以随便提数据，本身也不占用空间就对了，说白了就是可以自动生成数据</span><br><span class="line">dd if = /dev/operation_system of = opertion_system.iso #这个贼有用，可以用于制作ISO镜像文件</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">反过来试试？</span></span><br><span class="line">dd if = opertion_system.iso of = /dev/refus #烧录镜像文件作为系统启动盘,这不方便多了</span><br></pre></td></tr></table></figure>
+
+<p><code>tar</code>是一个文件压缩包命令，可以用来解压和压缩文件，有非常多的参数，这里我只使用<code>-czvf</code>和<code>-xzvf</code> ,<code>-c</code>即create创建，<code>-z</code>是gzip格式，它会以<code>.tar.gz</code>结尾，还有<code>-j</code>格式，它会以<code>.bz2</code>结尾，我们只用<code>.tar.gz</code>就行，<code>-v</code>参数即view可视化压缩&#x2F;解压过程,<code>-f</code>fileanme即目标文件名，你还可以使用<code>-C</code>参数来将压缩包指定到其它目录，我们以&#x2F;etc目录为例子，对该目录进行压缩，演示如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -czvf etc.tar.gz /etc #这里面一定要记住是先指定压缩包名称，再指定要压缩的文件或目录，不然你都找不到这文件，换句话说，你找人你总得知道他叫什么吧(doge)</span><br><span class="line">mkdir /root/etc #先创建本属于压缩包的目录，话说打包文件居然不会对其备份吗，好像windows也不会吧？</span><br><span class="line">tar -xzvf etc.tar.gz -C /root/etc #要注意-z参数和-x参数肯定是不能同时使用的，傻逼都知道，-C参数肯定是有指定功能的，不指定就放到当前工作目录去了</span><br></pre></td></tr></table></figure>
+<h3 id="重定向-、管道符、环境变量"><a href="#重定向-、管道符、环境变量" class="headerlink" title="重定向 、管道符、环境变量"></a>重定向 、管道符、环境变量</h3><hr>
+<ul>
+<li><code>&gt;</code> ,<code>&gt;&gt;</code> ,<code>2&gt;</code>,<code>2&gt;&gt;</code>,<code>&amp;&gt;</code>,<code>&amp;&gt;&gt;</code>的用法</li>
+<li><code>|</code>管道符的使用方法</li>
+</ul>
+<p>输入输出重定向一开始，我没法从字面意思去理解重定向，现在搞懂了，无非就是本该输入&#x2F;输出到默认位置(一般是桌面，终端等显示位置)，输入&#x2F;输出到其他地方去了(如第三方的文件)，主要有四种类型：标准覆盖输出重定向<code>&gt;</code>，标准追加输出重定向<code>&gt;&gt;</code>，错误覆盖输出重定向<code>2&gt;</code>，错误追加输出重定向<code>2&gt;&gt;</code>，此外还有将错误信息和标准信息都重定向到另一个位置的方式,分别是<code>&amp;&gt;</code>和<code>&amp;&gt;&gt;</code>,演示如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxprobe ~]#touch test1.md #先创建一个测试文件</span><br><span class="line">[root@linuxprobe ~]#ls -al test1.md</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">输出该文件的一系列信息</span></span><br><span class="line">[root@linuxprobe ~]# ls -al test1.md &gt; source1.txt #注意：这里定向的文件是不需要自己创建的，接着使用 cat source.txt,看到信息全跑到source1.txt去了</span><br><span class="line">[root@linuxprobe ~]# echo &#x27;高铭锐这个人超赞的，和他交个朋友&#x27; &gt; source1.txt </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#可以看出source.txt的文件已经完全被覆盖，先前的内容完全没有了</span></span></span><br><span class="line">[root@linuxprobe ~]# ehco &#x27;因为高铭锐这个人非常上进，且希望成为一个有能力承担责任的人，是一个值得交往的朋友，只不过时候还未到，给他一点时间吧，人才是需要包容的，而且还可以磨练他的意志力&#x27; &gt;&gt; source.txt ##使用&#x27;cat source.txt&#x27;可以看到本该出现在屏幕上的内容追加到source.txt,没有覆盖掉源文件</span><br><span class="line">[root@linuxprobe ~]# ls -al test.tx &gt; source2.txt ##这里面我可没有创建test.tx哈,结果报错了，下面会细说</span><br><span class="line">[root@linuxprobe ~]# ls -al test.tx 2&gt; source2.txt ##将信息保存进去了</span><br><span class="line">[root@linuxprobe ~]# ls -al test.txt 2&gt; source2.txt ##信息没保存反而在终端爆出来</span><br><span class="line">[root@linuxprobe ~]# makedir directory 2&gt;&gt; source2.txt ##信息追加到source2.txt中</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>总结:为了避免操作出错和方便记忆，记住一个规律叫：“对就对，错就错”，标准的输出就对应标准输出符，报错的输出就对应错误输出符，这样100%是没问题的</p>
+<p>现象：错误信息是不能标准重定向的，不然会报错(命令错就说找不到该命令，文件没有称找不到该文件)，正常信息的错误重定向没有意义，也保存不到定向文件，它会被错误符阻碍并在终端显示出来，这些规则适用于所有覆盖式和追加式的输出重定向，包括同时覆写&#x2F;追加错误信息和标准信息</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxprobe ~]# ls -al test2 2&gt; source3.txt</span><br><span class="line">[root@linuxprobe ~]#  pidof ps  &amp;&gt;&gt; source .txt ##追加错误和正确信息到一个新地方,那像&amp;&gt;就是直接覆盖了</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>大总结:这个命令用一句话来概括就是将本该输出到终端显示器的信息通过某种办法放到另一个地方,可以对文本内容甚至文本属性信息,命令输出信息进行重定向到一个新的文件中,是从控制文件单元到控制文本单元的一个巨大转变</strong>,使用场景:将你运维时信息进行重定向,包括你在学习运维知识时,你可以对你的错误信息定向到一个新的文件中,压缩后发给其他人,其实主要是后者,这是对只会使用<code>sosreport</code>求助的一大完善进步:happy:</p>
+</blockquote>
+<p><code>|</code>的玩法有很多，可以自己去网上搜索扩展几个实用的玩法，在本书中，貌似很针对文本来使用，不过对于<code>|</code>的描述我不是很认可，我理解为‘后一个命令作用于前一个命令输出到屏幕上的结果’比如说：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grep /sbin/nologin /etc/passwd | wc -l #先在/etc/passwd文件中找出所有‘/sbin/nologin’的字眼，其次用wc -l 数出有多少行带&#x27;/sbin/nologin&#x27;</span><br><span class="line">ls -l /etc/ | more #先用ls -l列出所有该目录的信息，其次用more命令来阅读这些信息</span><br><span class="line">echo &quot;linuxprobe&quot; | passwd --stdin root #在屏幕上打出linuxprobe,后面的参数我还没学，先搁一段时间吧</span><br><span class="line">ps aux | grep bash #先用ps aux 列出所有详细的进程到屏幕，再用grep搜索ps aux中的bash进程</span><br></pre></td></tr></table></figure>
+<p><code>tee</code>参数可以把输出同时定向到终端界面和另一个配置环境，管道符的多次使用其实也就是嵌套原理，搞不好会把自己搞晕，为了条理清楚，思路透彻，最好不要使用超出3个管道符:sob:,就和你的代码不要写出超过三个嵌套语句一样，那是依托；最后来一个<code>tee</code>的使用示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxprobe ~]# ls -alF | grep &quot;*.txt&quot; | tee result.txt  我想把文本的信息写入终端和一个文本中,这个文本是已经创建的，最终结果会放到result.txt和屏幕中去</span><br></pre></td></tr></table></figure>
+
+<p>命令行通配符很实用，不过我在实践的时候总是出故障，按照书里头所说，<code>tr</code>,<code>ls</code>,<code>touch</code>,<code>ehco</code>等都可以使用通配符，貌似很多都可以使用通配符，不过我前面使用<code>pidof</code>结合文件通配符，结果不尽人意:sob:这种东西最好是再网上查找几个实用的，然后多实践，具体情况按如下示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ls -l /dev/sda[0-9] #[0-9]表示任意数字</span><br><span class="line">ls -l /dev/sda*# *表示任意多个字符</span><br><span class="line">ls -l /dev/sda? #&#x27;?&#x27;表示一个任意字符</span><br><span class="line">ls -l /dev/sda[135]  #[135]表示列出1，3，5中存在的字符</span><br><span class="line">cat testfile.txt | tr [a-z] [A-Z] # 之前使用过的转换</span><br><span class="line">touch &#123;AA,BB,CC&#125;.conf #用于创建多个文件，有点用处，不过得使用大括号，还得将文件的命名与命名之间用逗号隔开</span><br></pre></td></tr></table></figure>
+<p><em><strong>建议在网上多找找相关的通配符实用技巧，见得多就觉得好用，你不是一个适合开发的人，所以你开发不出什么技巧，因为通配符和管道符的使用无非就是要提高运维的效率，想办法让自己见的多吧</strong></em>:happy:</p>
+<p>转义字符的使用目的是为了避免歧义，类似于变量的命名不能使用系统的关键字一样，比如说，在变量的使用的时候要与一个美元字符紧贴，如下示例：</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="name">root@linuxprobe</span> ~]# PRICE=<span class="number">5</span> //shell的表达式是紧贴的</span><br><span class="line">[<span class="name">root@linuxprobe</span> ~]# echo <span class="string">&quot;$PRICE&quot;</span> //可以看出双引号的作用就是对里面的变量属性不转义，且保留该属性，双引号内表示一个参数。</span><br><span class="line">[<span class="name">root@linuxprobe</span> ~]# echo <span class="string">&quot;$$PRICE&quot;</span>//你的想法是要给赋值加美元单位，但恰好引号和‘$$’的性质，错误地显示了它的PID</span><br><span class="line">[<span class="name">root@linuxprobe</span> ~]# ehco <span class="string">&quot;\$$PRICE&quot;</span> // &#x27;\<span class="symbol">&#x27;就可以进行转义</span></span><br></pre></td></tr></table></figure>
+<p><del>转化为了当前进程id，你可以使用ps -f 查看一下当前进程ID ，或者使用pidof直接查看也行</del>,其实都不行，因为<code>echo &quot;$$PRICE&quot;</code>程序是一瞬间的事，<code>pidof</code>和<code>ps</code>还真找不到其pid<br><code>&#39;&#39;</code>区别于<code>&quot;&quot;</code>，用来将里面的内容全部转化为字符串内容，自己回去多尝试.<br>反引号很奇怪，感觉也不实用，可能后面学会使用shell脚本编程，就会觉得实用(确实后面使用循环的时候非常重要，本人现在还处于这种半懂的状态)毕竟存在即合理，一般用反引号+命令，用来输出命令的值，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo `uname -a` #输出结果其实就和uname -a于终端是一样的，我还在疑惑为什么不直接使用uname -a?</span><br></pre></td></tr></table></figure>
+<p>环境变量的理解，其实就是我们给配置文件的一个别名，配置文件一般很多，发挥作用总不能每一次都输入那么多吧，还有可能忘记了，环境变量的用处就在这里体现了，就打比方说<code>$HOME</code>这样的一个环境变量，里面储存着大量的配置文件包括文件属性，相关信息等，还有找这些信息的路径，你总得创建一个环境变量把它们括起来吧，要查看环境变量值，有很多种办法，比如使用<code>echo</code>命令，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $PATH</span><br></pre></td></tr></table></figure>
+<p>或者是查看所有环境变量使用<code>env</code>命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">env</span><br></pre></td></tr></table></figure>
+<p>欸，这里就可以使用<code>|</code>来提高我们查找环境变量的效率，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">env | grep HOME</span><br><span class="line">env | grep $HOME</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意，上面这俩个是不一样的，一个搜索出来的是字符串HOME，一个搜索出来是$HOME的变量赋值，不要因为找不到$HOME字符串而懊恼，正好你能找到$HOME的环境变量</p>
+</blockquote>
+<h2 id="用户之间的变量名相同，变量值可以不同，因为用户的权限不同，多少会作出阶级区别export是一个提高普通变量为全局变量的方法，初始变量是局部的，在哪创建就只能在哪使用，提升为全局变量就能在任意用户中使用了-vim文本编辑器的使用"><a href="#用户之间的变量名相同，变量值可以不同，因为用户的权限不同，多少会作出阶级区别export是一个提高普通变量为全局变量的方法，初始变量是局部的，在哪创建就只能在哪使用，提升为全局变量就能在任意用户中使用了-vim文本编辑器的使用" class="headerlink" title="用户之间的变量名相同，变量值可以不同，因为用户的权限不同，多少会作出阶级区别export是一个提高普通变量为全局变量的方法，初始变量是局部的，在哪创建就只能在哪使用，提升为全局变量就能在任意用户中使用了#### vim文本编辑器的使用"></a>用户之间的变量名相同，变量值可以不同，因为用户的权限不同，多少会作出阶级区别<br><code>export</code>是一个提高普通变量为全局变量的方法，初始变量是局部的，在哪创建就只能在哪使用，提升为全局变量就能在任意用户中使用了<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export $VARIABLE</span><br></pre></td></tr></table></figure><br>#### vim文本编辑器的使用</h2><p>有三个模式：命令，编辑和输入模式<br>在命令模式下，一些简单的复制粘贴我就不说了，<code>u</code>的撤销操作，<code>/</code>和<code>?</code>的正向和反向搜索操作，<code>n</code>的下一个搜索对象，<code>N</code>的上一个搜索对象比较实用一些；在末行模式下，<code>:set nu</code>显示行号，<code>:set nonu</code>取消行号，比较适用于我这种喜欢IDE环境的人，特别是跳转操作<code>:行号</code>配合使用，也是可以提高很多效率，在末行模式使用<code>:命令</code>来执行该命令，这样的操作很迷人，我现在不知道怎么操作，替换操作则非常实用，改变量名什么的，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:s/key_word1/key_word2	#替换当行的第一个key_word1为key_word2</span><br><span class="line">:s/key_word1/key_word2/g #当行的key_word1全替换为key_word2</span><br><span class="line">:%s/key_word1/key_word2/g#全文的key_word1全替换为key_word2</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/#RHEL8Learningdialogue.html" data-id="cluz2ozlg0002a4wt8baacyaa" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/04/10/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
